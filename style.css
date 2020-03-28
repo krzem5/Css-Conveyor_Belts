@@ -1,0 +1,188 @@
+.board>.b .conv{
+	position: absolute;
+	width: 300px;
+	height: 300px;
+}
+.board>.b .conv>.c{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	height: 100px;
+	border: solid 5px #888;
+	border-right-color: transparent;
+	border-left-color: transparent;
+	overflow: hidden;
+	border: none;
+}
+.board>.b .conv:not(.top):not(.left):not(.right):not(.bottom)>.c{
+	transform-origin: 150px 50px;
+	top: 100px;
+	left: 0px;
+	border: solid 5px #888;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+	height: 200px;
+	width: 200px;
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 47.5% 100%, 47.5% 52.5%, 0 52.5%);
+	border: none;
+}
+.board>.b .conv:not(.top):not(.left):not(.right):not(.bottom)>.c>.border{
+	content: "";
+	position: absolute;
+	top: 100px;
+	left: -10px;
+	width: 50%;
+	height: 50%;
+	border: solid 5px #888;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+	border: none;
+}
+.board>.b .conv:not(.top):not(.left):not(.right):not(.bottom)>.c:after{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 95px;
+	width: 5px;
+	height: 50%;
+	background: #383838;
+	border: none;
+}
+.board>.b .conv:not(.top):not(.left):not(.right):not(.bottom)>.c>.conv{
+	position: absolute;
+	top: 0;
+	left: 100px;
+	height: 200px;
+	width: 100px;
+	border: none;
+}
+.board>.b .conv:not(.top):not(.left):not(.right):not(.bottom)>.c>.conv>.c{
+	width: 200px;
+	margin: 0;
+	border-bottom: none;
+	border-top: none;
+	border: none;
+}
+.board>.b .conv:not(.top):not(.left):not(.right):not(.bottom)>.c>.conv>.c>ul{
+	width: 300px;
+	height: 100px;
+}
+.board>.b .conv:not(.top):not(.left):not(.right):not(.bottom)>.c>ul{
+	width: 200px;
+	height: 100px;
+}
+.board>.b .conv>.c>ul{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	display: flex;
+	background: #181818;
+}
+.board>.b .conv>.c>ul>li{
+	list-style: none;
+	width: 40px;
+	height: 100px;
+	float: left;
+	animation: none;
+	clip-path: polygon(0% 0%,50% 0%,100% 50%,50% 100%,0% 100%,50% 50%);
+	background: #ee0;
+	transform: translateX(-40px);
+}
+.board.run>.b .conv>.c>ul>li{
+	animation: move linear 0.25s infinite;
+}
+@keyframes move{
+	0%{
+		transform: translateX(-40px);
+	}
+	100%{
+		transform: translateX(0px);
+	}
+}
+.board>.b .conv.right>.c{
+	transform: translate(-50%,-50%);
+}
+.board>.b .conv.bottom>.c{
+	transform: translate(-50%,-50%) rotateZ(90deg);
+}
+.board>.b .conv.left>.c{
+	transform: translate(-50%,-50%) rotateY(180deg);
+}
+.board>.b .conv.top>.c{
+	transform: translate(-50%,-50%) rotateZ(90deg) rotateY(180deg);
+}
+.board>.b .conv.left-bottom>.c{
+	transform: none;
+}
+.board>.b .conv.left-top>.c{
+	transform: rotateX(180deg);
+}
+.board>.b .conv.right-bottom>.c{
+	transform: rotateY(180deg);
+}
+.board>.b .conv.right-top>.c{
+	transform: rotateY(180deg) rotateX(180deg);
+}
+.board>.b .conv.top-left>.c{
+	transform: rotateZ(90deg);
+}
+.board>.b .conv.top-right>.c{
+	transform: rotateZ(90deg) rotateX(180deg);
+}
+.board>.b .conv.bottom-left>.c{
+	transform: rotateZ(90deg) rotateY(180deg);
+}
+.board>.b .conv.bottom-right>.c{
+	transform: rotateZ(90deg) rotateY(180deg) rotateX(180deg);
+}
+/*other*/
+body{
+	margin: 0;
+	padding: 0;
+}
+body *{
+	user-select: none;
+	margin: 0;
+	padding: 0;
+}
+.board{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: #222;
+}
+.board>.run{
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	width: 60px;
+	height: 60px;
+	font-size: 60px;
+	color: #0c0;
+	transition: 0.15s;
+	border-radius: 50%;
+	transform: scale(0.9);
+}
+.board>.run.s{
+	color: #a00;
+}
+.board>.run.r:hover{
+	color: #0f0;
+	transform: scale(1);
+}
+.board>.run.s:hover{
+	color: #c00;
+	transform: scale(1);
+}
+.board>.b{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%) scale(.5);
+	background: #080808;
+}
