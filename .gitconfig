@@ -5,6 +5,7 @@ desc=Css-Conveyor_Belts
 public=true
 homepage=
 license=mit
+remote=
 
 file.readme=.\README.md
 file.gitignore=.\.gitignore
